@@ -9,4 +9,8 @@
   <i *ngIf="ticket.major === 'Physique'" class="fas fa-atom"> {{ticket.major}}</i>
   <i *ngIf="ticket.major === 'Mathématiques'" class="fas fa-calculator"> {{ticket.major}}</i>
   <i *ngIf="ticket.major === 'Économie'" class="fas fa-chart-bar"> {{ticket.major}}</i>
+  <br>
+
 </div>
+
+<button (click)="archiveTicket(ticket)">Archived</button>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketService } from '../../../services/ticket/ticket.service';
-import { Ticket } from '../../../models/ticket';
+import { Major, Ticket } from '../../../models/ticket';
+//import { StudentService } from '../../../services/ticket/student.service';
 
 @Component({
   selector: 'app-ticket-form',
@@ -36,8 +37,10 @@ export class TicketFormComponent implements OnInit {
   addTicket() {
     const ticketToCreate: Ticket = this.ticketForm.getRawValue() as Ticket;
     ticketToCreate.date = new Date();
-    ticketToCreate.student = 'Me';
+    //ticketToCreate.student = 'Me';
     this.ticketService.addTicket(ticketToCreate);
+    // ajouter la variable student
   }
-
+  majorValues = Object.values(Major);
 }
+
