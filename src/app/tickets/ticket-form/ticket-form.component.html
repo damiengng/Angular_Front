@@ -11,10 +11,22 @@
   </label>
   <br>
   <label for="major">
-    Major <br> </label>
-  <select formControlName="major" id="major">
-    <option *ngFor="let major of majorValues" [value]="major">{{ major }}</option>
-  </select>
+    Major <br>
+    <select formControlName="major" id="major">
+      <option value="" disabled selected>Choose your Major</option>
+      <option *ngFor="let major of majorList" [value]="major">{{ major }}</option>
+    </select>
+  </label>
+  <br>
+  <label for="stud">
+    Student <br>
+    <select class="form-select" required id="stud" [formControlName]="'studentID'">
+      <option value="" disabled selected>Choose the Student</option>
+      <option *ngFor="let studi of Student_List" [value]="studi.id">
+        {{studi.id}} - {{studi.nom}} {{studi.prenom}}
+      </option>
+    </select>
+  </label>
   <br>
   <button type="submit" class="btn-custom" (click)="addTicket()">Create</button>
 </form>

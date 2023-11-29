@@ -31,7 +31,6 @@ export class TicketListComponent implements OnInit {
   archiveTicket(ticket: Ticket) {
     //console.log('valeur archive', ticket.archived);
     this.ticketService.archiveTicket(ticket);
-    console.log('valeur archive', ticket.archived);
   }
 
 

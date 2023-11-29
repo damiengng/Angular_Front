@@ -1,4 +1,4 @@
-//import { Student } from '../models/student.models';
+import { Student } from '../models/student.models';
 
 export enum Major {
   Informatique = 'Informatique',
@@ -12,9 +12,7 @@ export interface Ticket {
   title?: string;
   description?: string;
   date?: Date;
-  student?: string;
-  //studentID?: number;
   major?: Major;
   archived?: boolean;
-  //student?: Student;
+  student?: Student;
 }
