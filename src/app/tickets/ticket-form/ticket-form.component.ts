@@ -33,7 +33,12 @@ export class TicketFormComponent implements OnInit {
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
-    this.studentService.students$.subscribe((students) => this.Student_List = students);
+    //this.studentService.students$.subscribe((students) => this.Student_List = students);
+    this.studentService.getStudent().subscribe((students) => {
+      this.Student_List = students;
+      this.studentService.students$.next(this.Student_List);
+    });
+
   }
 
   ngOnInit() {

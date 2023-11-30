@@ -22,8 +22,10 @@
     Student <br>
     <select class="form-select" required id="stud" [formControlName]="'studentID'">
       <option value="" disabled selected>Choose the Student</option>
-      <option *ngFor="let studi of Student_List" [value]="studi.id">
-        {{studi.id}} - {{studi.nom}} {{studi.prenom}}
+      <!--<option *ngFor="let studi of Student_List" [value]="studi.id">-->
+      <!--{{studi.id}} - {{studi.nom}} {{studi.prenom}}-->
+      <option *ngFor="let currentstudentID of Student_List" [value]="currentstudentID.id">
+        {{currentstudentID.studentId}} - {{currentstudentID.nom}} {{currentstudentID.prenom}}
       </option>
     </select>
   </label>

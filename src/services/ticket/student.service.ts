@@ -7,23 +7,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     providedIn: 'root'
 })
 export class StudentService {
-    private studentList: Student[] = STUDENTS_MOCKED;
+    //private studentList: Student[] = STUDENTS_MOCKED;
+    private studentList: Student[] = [];
     public students$: BehaviorSubject<Student[]> = new BehaviorSubject(this.studentList);
 
-    apiURL = 'http://localhost:9428';
+    url = 'http://localhost:9428/api/students/';
 
     constructor(private http: HttpClient) {
     }
-    getStudent(): void {
-        this.http.get<Student[]>(this.apiURL)
-            .subscribe(
-                (students: Student[]) => {
-                    this.studentList = students;
-                    this.students$.next(this.studentList);
-                },
-                error => {
-                    console.error('Erreur lors de la requête GET:', error);
-                }
-            );
+
+    getStudent(): Observable<Student[]> {
+        return this.http.get<Student[]>(this.url);
     }
 }
